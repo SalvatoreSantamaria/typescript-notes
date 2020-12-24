@@ -37,3 +37,18 @@ const dog2: Dog = {
 }
 
 // Strong Typing: Function Type Enforcement 
+//requires input to  be number, and that return value is a string
+//if the function doesn't return a value, use void
+function add(a: number, b: number): string {
+  return (a + b).toString()
+}
+
+// Strong Typing Arrays ***********************************************************************************************
+// let Arr: Person[] = [] example of getting custom shaped
+let arr: number[]= [] //only number types allowed
+arr.push(1)
+arr.push('23')
+arr.push(false)
+
+type MyList = [number?, string?, boolean?] //these are optional with the ?
+const arr2: MyList = []
