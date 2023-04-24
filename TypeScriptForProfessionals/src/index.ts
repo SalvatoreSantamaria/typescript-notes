@@ -74,3 +74,5 @@ class Bird extends Animal {
 }
 
 //Target Complier Option: see video
+//Generics allow you to add type arguments that can be used to enforce a relationship between different members of a piece of code.
+//https://www.w3schools.com/typescript/typescript_basic_generics.php
