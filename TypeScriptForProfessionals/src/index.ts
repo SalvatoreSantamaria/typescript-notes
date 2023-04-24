@@ -76,3 +76,39 @@ class Bird extends Animal {
 //Target Complier Option: see video
 //Generics allow you to add type arguments that can be used to enforce a relationship between different members of a piece of code.
 //https://www.w3schools.com/typescript/typescript_basic_generics.php
+
+//Any and Unknown types
+//any gives complete freedom
+let exampleAny: any = 123 
+let anySetBool: boolean = exampleAny.anything()
+//any lets us do this:
+let y: any
+y.trim()
+y.toFixed(2)
+//unknown is similar, but it does not allow use as in an unsafe manner.
+// typescript will tell you where it is in use
+let x: unknown
+unknown.trim()
+unknown.toFixed(2)
+
+//Type Assertions
+//Tells the compiler what the type is without any type checks
+let someString = load();
+const trimmed = (someString as string).trim()// tells compiler this is a string
+//Alternate Syntax (doesn't work in TSX files!)
+const trimmed2 = (<string>someString).trim() // tells compiler this is a string
+
+//Type Casting
+//Typescript supports JavaScript type casting
+let variable1;
+variable1 = '123'
+const number = +variable1 //+ coverts to a number
+
+//Modules
+//Works like JS Modules
+//import * as utils from './utils';
+
+//Type Declarations
+//Declaring a variable that is not present in the typescript codebase
+declare const process: any //type declaration
+process.env.USER
