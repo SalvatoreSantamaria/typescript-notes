@@ -1,7 +1,21 @@
-// missing lexical this
-// missing readonly modifier
+/** Lexical this
+ * Not a typescript feature
+ * Shows how/why we can get 'this' errors in typescript 
+ */
 
-/* Union Types - syntax looks like
+/** Readonly modifier
+
+type PointExample = {
+    readonly x: string // cannot modify x
+    y: string         // y can still be modified
+}
+const myPointExample: PointExample = { x: 'a', y: 'b' }
+myPointExample.x = 'something new after x was created'  //cant modify x
+
+// also can't do this with classes
+*/
+
+/** Union Types - syntax looks like
 function someFunction(input: number | string) {}
 
 // Using a type alias instead
@@ -9,7 +23,7 @@ type numString = number | string
 function someFunction2(input: numString) {}
 */
 
-/* Literal Types- used specify variable types and will also show up in autocomplete 
+/** Literal Types- used specify variable types and will also show up in autocomplete 
 let direction: 'North';
 direction = 'North';
 direction = 'cant use anything else here';
@@ -19,7 +33,7 @@ let someStatus: 0 | 5 | 10 | 20 // can extract into a named type alias like this
 someStatus = 22 //won't work!
  */
 
-/* Type Narrowing 
+/** Type Narrowing 
 Type narrowing is just what it sounds like—narrowing down a general type into something more precise. 
 If you've ever dealt with union types, e.g. string | number you've certainly encountered this. 
 In fact, optional types such as x?: number often require narrowing as well, as this typing is equivalent to x: number | undefined. 
