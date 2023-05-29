@@ -28,7 +28,6 @@ In both of these cases, you'll likely need to handle each case in your code, and
 Uses instanceOf but cannot use instanceOf for custom classes
 */
 
-
 /** Discriminated Unions
 
 type Circle = {
@@ -98,7 +97,7 @@ function example(value: string | null) {
 }
  */
 
-/** Intersection types
+/** Intersection types (uses type aliases)
  * Combine features of multiple types into one
 
 
@@ -125,4 +124,34 @@ type combinePointType =
   & somePoint3D;
 
 */
+
+/** Interfaces: alternate to type aliases (see above somePoint2D and somePoint3D example)
+
+interface somePoint2D {
+    x: number, 
+    y: number
+}
+
+interface somePoint3D extends Point2D {
+    z: number
+}
+*/
+
+/** Optional modifier ?
+type Person = {
+    name: string,
+    email?: string, // optional modifier. 
+}
+
+myperson.email is optional and can now be equal to undefined as well
+
+ */
+
+/** Non-null Assertion modifier !
+ * looks like this !, and tells typescript that this is definitely not null
+ * point!.x
+ * 
+ * But best to write code that doesn't need to use the Non-null Assertion modifier
+ */
+
 
