@@ -154,4 +154,18 @@ myperson.email is optional and can now be equal to undefined as well
  * But best to write code that doesn't need to use the Non-null Assertion modifier
  */
 
+/** Interface Declaration merging 
+ * merges together same-names interfaces into a single interface declaration
+ * not supported by type aliases
+*/
+
+/** Types vs Interfaces - generally use types because more features
+ * differences between these:
+ * type aliases: Unions, Intersections (&), Primitives, Shorthand functions, Advanced Type Functions
+ * interface: Declaration Merging, Familiarity (extends)
+ */
+
+/** Never type
+ * Only something of type never can be assigned to type never
+ */
 
