@@ -24,8 +24,48 @@ If the function returns true, TypeScript will narrow the type to MouseEvent in a
 
 */
 
-/** Assertion Functions
+/** Assertion Functions- mostly for tests (don't want to throw errors in prod, use type guards instead)
+ * Special functions that assert something
+ * function assert(condition: unknown, message: string): asserts condtion {
+ * function assertDate(value: unknown): asserts value is Date {
+
+
+type Person = { name: string, dateOfBirth?: Date };
+
+function assert(condition: unknown, message: string) { //2. fix by adding return type of ': asserts condition' here
+    if (!condition) {
+        throw new Error(message);
+    }
+}
+const maybePerson = loadPerson();
+assert(maybePerson != null, 'Could not load person')
+console.log('Name: ',  maybePerson.name) // 1. maybePerson has typescript error
+*/
+
+
+/** Function Overloading: 
+You can have multiple functions with the same name but different parameter types and return type.
+ 
+function makeDate(timestamp: number): Date; //overload
+function makeDate(year: number, month: number, day: number): Date; //overload
+
+function makeDate(timestampOrYear: number, month?: number, day?: number): Date { //actual function
+  if (month != null && day != null) {
+    return new Date(timestampOrYear, month - 1, day);
+  } else {
+    return new Date(timestampOrYear);
+  }
+}
+
+const doomsday = makeDate(2000, 1, 1); // 1 Jan 2000
+const epoch = makeDate(0); // 1 Jun 1970
  * 
  * 
- * 
- *  */
+ */
+
+
+/** Call signatures
+  lesson shows signature
+ */
+
+
